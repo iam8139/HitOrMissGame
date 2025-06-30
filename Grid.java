@@ -1,26 +1,20 @@
 import java.util.*;
-
 public class Grid {
-    private int[] locations;
-    private int counter = 0;
-
-    public Grid(int[] locations) {
+    private ArrayList<String> locations;
+    public Grid(ArrayList<String> locations) {
         this.locations = locations;
     }
-
     public String checkYourself(String position) {
-        int pos = Integer.parseInt(position);
+        int loc = locations.indexOf(position);
         String res = "Miss";
-        for (int loc : locations) {
-            if (loc == pos) {
-                res = "Hit";
-                counter++;
-                break;
-            }
-        }
+        if (loc >= 0) {
+            locations.remove(loc);
 
-        if (counter == locations.length) {
-            res = "Kill";
+            if (locations.isEmpty()) {
+                res = "Kill";
+            } else {
+                res = "Hit";
+            }
         }
 
         System.out.println(res);

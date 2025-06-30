@@ -1,6 +1,10 @@
+import java.util.ArrayList;
 public class HitOrMissGameTestDrive {
     public static void main(String[] args) {
-        int[] locations = {2,3,4};
+        ArrayList<String> locations = new ArrayList<>();
+        locations.add("2");
+        locations.add("3");
+        locations.add("4");
         Grid grid = new Grid(locations);
         String result = grid.checkYourself("2");
         if (result.equals("Hit")) System.out.println("Result: " + result);
